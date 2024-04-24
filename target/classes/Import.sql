@@ -1,0 +1,3 @@
+INSERT INTO USERS(fullname, document, email, password, balance, user_role) VALUES('Felipe Sandes', '542.733.082-36', 'felipe@gmail.com', 'felipe123', 1000, 'COMMON');
+INSERT INTO USERS(fullname, document, email, password, balance, user_role) VALUES('John Frusciante', '342.733.082-36', 'john@gmail.com', 'john123', 1000, 'COMMON');
+INSERT INTO USERS(fullname, document, email, password, balance, user_role) VALUES('Amazon', '34.733.082/3654', 'amazon@gmail.com', 'amazon123', 10000, 'MERCHANT');
