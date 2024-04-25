@@ -6,6 +6,7 @@ import com.picpay.simplificado.dtos.NewUserDTO;
 import com.picpay.simplificado.dtos.UserDTO;
 import com.picpay.simplificado.entities.enuns.UserRole;
 import com.picpay.simplificado.services.UserService;
+import com.picpay.simplificado.services.exceptions.DataNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -40,8 +41,8 @@ class UserControllerTest {
 
     @BeforeEach
     void setUp(){
-        insertDTO = new NewUserDTO(null, "Roger Waters", "111.111.111-11", "roger@gmail.com", "roger123", BigDecimal.valueOf(1000), UserRole.COMMON);
-        outputDTO = new UserDTO(1L, "Roger Waters", "111.111.111-11", "roger@gmail.com", BigDecimal.valueOf(1000), UserRole.COMMON);
+        insertDTO = new NewUserDTO(null, "Roger Waters", "555.555.555-55", "roger1@gmail.com", "roger123", BigDecimal.valueOf(1000), UserRole.COMMON);
+        outputDTO = new UserDTO(1L, "Roger Waters", "555.555.555-55", "roger1@gmail.com", BigDecimal.valueOf(1000), UserRole.COMMON);
     }
 
     @Test
@@ -50,6 +51,8 @@ class UserControllerTest {
         String jsonBody = objectMapper.writeValueAsString(insertDTO);
 
         Mockito.when(service.insert(Mockito.any())).thenReturn(outputDTO);
+        Mockito.doThrow(DataNotFoundException.class).when(service).findByDocument(Mockito.any());
+        Mockito.doThrow(DataNotFoundException.class).when(service).findByEmail(Mockito.any());
 
         ResultActions result = mockMvc.perform(post("/users")
                 .content(jsonBody)

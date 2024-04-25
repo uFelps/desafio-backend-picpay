@@ -1,0 +1,8 @@
+com\picpay\simplificado\controllers\UserControllerTest.class
+com\picpay\simplificado\services\UserServiceTest.class
+com\picpay\simplificado\services\NotificationServiceTest.class
+com\picpay\simplificado\controllers\TransactionControllerTest.class
+com\picpay\simplificado\repositories\UserRepositoryTest.class
+com\picpay\simplificado\SimplificadoApplicationTests.class
+com\picpay\simplificado\repositories\TransactionRepositoryTest.class
+com\picpay\simplificado\services\TransactionServiceTest.class
